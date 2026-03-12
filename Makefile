@@ -6,7 +6,7 @@
 #    By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/16 13:50:46 by adakhama          #+#    #+#              #
-#    Updated: 2026/01/21 18:39:26 by adakhama         ###   ########.fr        #
+#    Updated: 2026/03/11 17:19:01 by adakhama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,10 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra -g
 
-NAME = pipex
+NAME = so_long
 
-SRC =	Test/main_exemples.c \
-		main.c \
-		pipex.c \
-		process.c \
+SRC =	main.c \
+		parser.c \
 		library/get_next_line/get_next_line_bonus.c \
 		library/get_next_line/get_next_line_utils_bonus.c \
 		library/struct/ft_listiter.c \

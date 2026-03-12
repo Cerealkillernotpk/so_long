@@ -6,11 +6,11 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:32:19 by adakhama          #+#    #+#             */
-/*   Updated: 2026/01/10 16:26:43 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/11 17:15:41 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pipex.h"
+#include "../../so_long.h"
 
 void	ft_lstclear(t_stack **lst, void (*del)(void *))
 {

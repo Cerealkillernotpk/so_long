@@ -6,11 +6,11 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:18:04 by adakhama          #+#    #+#             */
-/*   Updated: 2026/01/10 16:27:07 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/11 17:16:19 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pipex.h"
+#include "../../so_long.h"
 
 t_stack	*ft_lstnew(void *content)
 {

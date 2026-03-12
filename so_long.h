@@ -26,7 +26,6 @@
 typedef struct s_stack
 {
 	void			*content;
-	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -44,5 +43,9 @@ t_stack		*ft_lstlast(t_stack *lst);
 t_stack		*ft_lstmap(t_stack *lst, void *(*f)(void *), void (*del)(void *));
 t_stack		*ft_lstnew(void *content);
 t_stack		*ft_lstnew_nbr(int content);
+
+/*So_long*/
+
+int			parser(char **av, int ac);
 
 #endif

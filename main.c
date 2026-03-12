@@ -6,13 +6,13 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:50:08 by adakhama          #+#    #+#             */
-/*   Updated: 2026/02/04 18:02:01 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/12 17:19:51 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char**argv)
+int	main(int argc, char**argv)
 {
-	
+	parser(argv, argc);
 }
