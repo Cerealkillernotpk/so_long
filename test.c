@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 14:50:08 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/13 21:09:52 by adakhama         ###   ########.fr       */
+/*   Created: 2026/03/13 19:21:35 by adakhama          #+#    #+#             */
+/*   Updated: 2026/03/13 20:21:42 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char**argv)
+void print_map(char **map)
 {
-	int		line;
-	char	**map;
-	
-	map = parser(argv, argc);
-	print_map(map);
+	int i;
+
+	i = 0;
+	while (map[i] != NULL)
+	{
+		ft_printf("%s", map[i]);
+		i++;
+	}
 	ft_printf("\n");
-	if (map == 0)
-		return(0);
-	line = line_number(argv[1]);
-	flood_fill(map,line);
 }

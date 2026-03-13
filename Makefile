@@ -6,7 +6,7 @@
 #    By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/16 13:50:46 by adakhama          #+#    #+#              #
-#    Updated: 2026/03/11 17:19:01 by adakhama         ###   ########.fr        #
+#    Updated: 2026/03/13 19:25:36 by adakhama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ NAME = so_long
 
 SRC =	main.c \
 		parser.c \
+		flood_fill.c \
+		test.c \
 		library/get_next_line/get_next_line_bonus.c \
 		library/get_next_line/get_next_line_utils_bonus.c \
 		library/struct/ft_listiter.c \

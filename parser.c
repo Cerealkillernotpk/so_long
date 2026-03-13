@@ -6,24 +6,11 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:34:57 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/12 18:28:53 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/13 20:21:19 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void print_map(char **map)
-{
-	int i;
-
-	i = 0;
-	while (map[i] != NULL)
-	{
-		ft_printf("%s", map[i]);
-		i++;
-	}
-	ft_printf("/n");
-}
 
 int line_number(char *filepath)
 {
@@ -53,6 +40,8 @@ int	get_map(char *filepath, char **map)
 	while(tmp != NULL)
 	{
 		map[i] = malloc(sizeof(char) * ft_strlen(tmp));
+		if (!map[i])
+			return(0);
 		map[i] = tmp;
 		i++;
 		tmp = get_next_line(fd);
@@ -79,7 +68,7 @@ int	check_map_name(char *name)
 	return (1);
 }
 
-int	parser(char **av, int ac)
+char	**parser(char **av, int ac)
 {
 	char	**map;
 	int		line;
@@ -88,23 +77,22 @@ int	parser(char **av, int ac)
 	if (ac != 2)
 	{
 		ft_printf("Wrong argument number");
-		return (0);
+		return (NULL);
 	}
 	if (check_map_name(av[1]) == 0)
 	{
 		ft_printf("Name extemtion is invalid");
-		return(0);
+		return(NULL);
 	}
 	line = line_number(av[1]);
 	if (line == 0)
 	{
 		ft_printf("Name or filepath is invalid");
-		return(0);
+		return(NULL);
 	}
 	map = malloc(sizeof(char*) * line);
 	if (!map)
-		return(0);
+		return(NULL);
 	get_map(av[1], map);
-	print_map(map);
-	return(1);
+	return(map);
 }

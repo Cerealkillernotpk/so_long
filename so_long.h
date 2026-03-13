@@ -29,7 +29,11 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-
+typedef struct s_vec
+{
+	int	x;
+	int	y;
+}	t_vec;
 
 /*Librairie fonction de struct*/
 
@@ -46,6 +50,9 @@ t_stack		*ft_lstnew_nbr(int content);
 
 /*So_long*/
 
-int			parser(char **av, int ac);
+char		**parser(char **av, int ac);
+int	 		flood_fill(char **map, int line);
+int			line_number(char *filepath);
+void		print_map(char **map);
 
 #endif
