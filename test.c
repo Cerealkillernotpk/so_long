@@ -6,21 +6,20 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:21:35 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/13 20:21:42 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 14:30:43 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void print_map(char **map)
+void print_map(char **map, int line)
 {
 	int i;
 
 	i = 0;
-	while (map[i] != NULL)
+	while (map[i] != NULL && i < line)
 	{
 		ft_printf("%s", map[i]);
 		i++;
 	}
-	ft_printf("\n");
 }

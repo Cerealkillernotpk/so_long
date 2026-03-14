@@ -53,6 +53,7 @@ t_stack		*ft_lstnew_nbr(int content);
 char		**parser(char **av, int ac);
 int	 		flood_fill(char **map, int line);
 int			line_number(char *filepath);
-void		print_map(char **map);
+void		print_map(char **map, int line);
+void		free_map(char** map, int line);
 
 #endif

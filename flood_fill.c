@@ -6,18 +6,18 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 15:18:15 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/13 21:10:58 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 15:00:05 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	copy_map(char **map, char **copy)
+int	copy_map(char **map, char **copy, int line)
 {
 	int		i;
 
 	i = 0;
-	while (map[i])
+	while (map[i] && i < line)
 	{
 		copy[i] = malloc(sizeof(char) * ft_strlen(map[i]));
 		if (!copy[i])
@@ -76,11 +76,6 @@ int	fill(char **copy, t_vec *coord)
 	return(1);
 }
 
-// void to_free(char** copy)
-// {
-	
-// }
-
 int	checker(char **copy, t_vec *coord)
 {
 	if (go_to(coord, copy, 'E') && go_to(coord, copy, 'C'))
@@ -98,12 +93,13 @@ int	flood_fill(char **map, int line)
 	copy = malloc(sizeof(char *) * line);
 	if (!copy)
 		return (0);
-	if (!copy_map(map, copy))
+	if (!copy_map(map, copy, line))
 		return (0);
 	if (!fill(copy, &coord))
 		return (0);
 	if (!checker(copy, &coord))
 		return (0);
-	print_map(copy);
+	print_map(copy, line);
+	free_map(copy, line);
 	return (1);
 }
