@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:34:57 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/13 20:21:19 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 18:39:21 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int line_number(char *filepath)
 	return(i);
 }
 
-int	get_map(char *filepath, char **map)
+static int	get_map(char *filepath, char **map)
 {
 	int		fd;
 	int		i;
@@ -49,7 +49,7 @@ int	get_map(char *filepath, char **map)
 	return (1);
 }
 
-int	check_map_name(char *name)
+static int	check_map_name(char *name)
 {
 	size_t	len;
 	size_t	i;

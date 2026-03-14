@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:31:28 by adakhama          #+#    #+#             */
-/*   Updated: 2025/10/29 18:12:52 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 18:28:01 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*new_str(const char *s1, size_t start, size_t len)
 	char	*str;
 	size_t	i;
 
-	if (len <= 0 || start >= ft_strlen(s1))
+	if (len <= 0 || start >= len(s1))
 	{
 		str = ft_strdup("");
 		return (str);
@@ -58,8 +58,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = 0;
 	if (!s1)
 		return (NULL);
-	j = ft_strlen(s1) - 1;
-	if (ft_strlen(s1) == 0)
+	j = len(s1) - 1;
+	if (len(s1) == 0)
 	{
 		str = ft_strdup("");
 		return (str);

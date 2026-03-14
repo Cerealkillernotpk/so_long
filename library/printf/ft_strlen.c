@@ -6,13 +6,13 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:40:27 by adakhama          #+#    #+#             */
-/*   Updated: 2025/11/04 16:36:44 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 18:28:01 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+size_t	len(const char *str)
 {
 	size_t	i;
 

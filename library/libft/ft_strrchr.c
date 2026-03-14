@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:31:10 by adakhama          #+#    #+#             */
-/*   Updated: 2025/10/28 14:43:50 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 18:28:01 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = ft_strlen(s);
+	i = len(s);
 	if (s[i] == (unsigned char)c)
 		return ((char *)(s + i));
 	while (i--)

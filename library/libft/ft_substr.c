@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:34:01 by adakhama          #+#    #+#             */
-/*   Updated: 2025/10/31 13:33:39 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 18:28:01 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	slen = ft_strlen(s);
+	slen = len(s);
 	if (start >= slen)
 	{
 		sub = ft_strdup("");

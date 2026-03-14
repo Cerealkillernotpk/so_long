@@ -6,20 +6,20 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 15:18:15 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/14 15:00:05 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 18:28:01 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	copy_map(char **map, char **copy, int line)
+static int	copy_map(char **map, char **copy, int line)
 {
 	int		i;
 
 	i = 0;
 	while (map[i] && i < line)
 	{
-		copy[i] = malloc(sizeof(char) * ft_strlen(map[i]));
+		copy[i] = malloc(sizeof(char) * len(map[i]));
 		if (!copy[i])
 			return(0);
 		copy[i] = map [i];
@@ -28,7 +28,7 @@ int	copy_map(char **map, char **copy, int line)
 	return(1);
 }
 
-int	go_to(t_vec *coord, char **copy, char c)
+static int	go_to(t_vec *coord, char **copy, char c)
 {
 	int x;
 	int	y;
@@ -63,7 +63,7 @@ static void flood(int x, int y, char **copy)
 	flood (x, y - 1, copy);
 } 
 
-int	fill(char **copy, t_vec *coord)
+static int	fill(char **copy, t_vec *coord)
 {
 	int		x;
 	int		y;
@@ -73,13 +73,6 @@ int	fill(char **copy, t_vec *coord)
 	x = coord->x;
 	y = coord->y;
 	flood (x, y, copy);
-	return(1);
-}
-
-int	checker(char **copy, t_vec *coord)
-{
-	if (go_to(coord, copy, 'E') && go_to(coord, copy, 'C'))
-		return (0);
 	return(1);
 }
 
@@ -97,7 +90,7 @@ int	flood_fill(char **map, int line)
 		return (0);
 	if (!fill(copy, &coord))
 		return (0);
-	if (!checker(copy, &coord))
+	if (!flood_fill_checker(copy, &coord))
 		return (0);
 	print_map(copy, line);
 	free_map(copy, line);

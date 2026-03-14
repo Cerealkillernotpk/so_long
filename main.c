@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:50:08 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/14 14:59:34 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/14 18:37:23 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	main(int argc, char**argv)
 	if (map == 0)
 		return(0);
 	line = line_number(argv[1]);
+	map_border_checker(map, line);
 	print_map(map, line);
 	ft_printf("\n\n");
 	flood_fill(map,line);
+	ft_printf("\n\n");
 	free_map(map, line);
 }
