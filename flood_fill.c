@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 15:18:15 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/14 18:28:01 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/26 17:39:22 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	copy_map(char **map, char **copy, int line)
 	i = 0;
 	while (map[i] && i < line)
 	{
-		copy[i] = malloc(sizeof(char) * len(map[i]));
+		copy[i] = malloc(sizeof(char) * ft_strlen(map[i]));
 		if (!copy[i])
 			return(0);
 		copy[i] = map [i];
@@ -28,7 +28,7 @@ static int	copy_map(char **map, char **copy, int line)
 	return(1);
 }
 
-static int	go_to(t_vec *coord, char **copy, char c)
+int	go_to(t_vec *coord, char **copy, char c)
 {
 	int x;
 	int	y;
@@ -47,6 +47,8 @@ static int	go_to(t_vec *coord, char **copy, char c)
 	}
 	coord->x = x;
 	coord->y = y;
+	if (copy[x][y] != c)
+		return (0);
 	if (!(copy[x][y]))
 		return (0);
 	return (1);
@@ -89,9 +91,15 @@ int	flood_fill(char **map, int line)
 	if (!copy_map(map, copy, line))
 		return (0);
 	if (!fill(copy, &coord))
+	{
+		ft_printf("Invalid map !!\n");
 		return (0);
-	if (!flood_fill_checker(copy, &coord))
+	}
+	if (flood_fill_checker(copy, &coord) == 0)
+	{
+		ft_printf("Invalid map !!\n");
 		return (0);
+	}
 	print_map(copy, line);
 	free_map(copy, line);
 	return (1);

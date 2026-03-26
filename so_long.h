@@ -59,9 +59,11 @@ int			map_border_checker(char **map, int line);
 
 void		free_map(char** map, int line);
 int			line_number(char *filepath);
+int	go_to(t_vec *coord, char **copy, char c);
 
 /*Test*/
 
 void		print_map(char **map, int line);
+int			check_map(char	**map, int line);
 
 #endif

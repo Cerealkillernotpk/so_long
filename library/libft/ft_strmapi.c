@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:55:21 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/14 18:28:01 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:58:10 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	res = malloc((len(s) + 1) * sizeof(char));
+	res = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	i = 0;
-	while (i < len(s))
+	while (i < ft_strlen(s))
 	{
 		res[i] = f(i, s[i]);
 		i++;
