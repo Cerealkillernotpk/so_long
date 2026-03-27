@@ -6,27 +6,27 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 18:08:47 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/26 17:35:53 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/27 21:25:46 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	flood_fill_checker(char **copy, t_vec *coord)
+int	flood_fill_checker(char **copy, t_so_long *coord)
 {
-	if (go_to(coord, copy, 'E') && go_to(coord, copy, 'C'))
+	if (go_to(coord, copy, 'E') || go_to(coord, copy, 'C'))
 		return (0);
 	return(1);
 }
 
-int	check_line(char **map, int line, t_vec coord)
+int	check_line(char **map, int line, t_so_long coord)
 {
 	int	len;
 	
 	len = (int)ft_strlen(map[0]);
 	while (coord.x < line)
 	{
-		while(coord.y <= len)
+		while(coord.y < len)
 		{
 			if ((coord.x > 0 && coord.x < line - 1))
 			{
@@ -46,13 +46,15 @@ int	check_line(char **map, int line, t_vec coord)
 
 int		map_border_checker(char **map, int line)
 {
-	t_vec coord;
+	t_so_long	coord;
+	int		y;
 
+	y = ft_strlen(map[0]);
 	coord.x = 0;
 	coord.y = 0;
-	while (map[coord.x][line] != '\0')
+	while (map[coord.x][y])
 	{
-		if (ft_strlen(map[coord.x]) != ft_strlen(map[0]))
+		if ((int)ft_strlen(map[coord.x]) != y)
 			return (0);
 		coord.x++;
 	}
@@ -64,7 +66,7 @@ int		map_border_checker(char **map, int line)
 
 int	check_map(char	**map, int line)
 {
-	t_vec coord;
+	t_so_long coord;
 	int	len;
 	int	bn;
 	

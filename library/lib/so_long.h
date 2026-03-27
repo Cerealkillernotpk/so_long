@@ -29,11 +29,14 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-typedef struct s_vec
+typedef struct s_so_long
 {
-	int	x;
-	int	y;
-}	t_vec;
+	int		x;
+	int		y;
+	int		line_number;
+	char	**map;
+}t_so_long;
+
 
 /*Librairie fonction de struct*/
 
@@ -50,20 +53,27 @@ t_stack		*ft_lstnew_nbr(int content);
 
 /*Parser*/
 
-char		**parser(char **av, int ac);
-int	 		flood_fill(char **map, int line);
-int			flood_fill_checker(char **copy, t_vec *coord);
+t_so_long	parser(char **av);
+int	 		flood_fill(t_so_long map);
+int			flood_fill_checker(char **copy, t_so_long *coord);
 int			map_border_checker(char **map, int line);
 
 /*Utils*/
 
-void		free_map(char** map, int line);
+void		free_map(char** map);
 int			line_number(char *filepath);
-int	go_to(t_vec *coord, char **copy, char c);
+int			go_to(t_so_long *coord, char **copy, char c);
 
 /*Test*/
 
 void		print_map(char **map, int line);
 int			check_map(char	**map, int line);
+
+/*Error*/
+
+void	file_error_message(int error);
+void	malloc_error(void);
+void	map_error(char **map);
+void	malloc_error_array(char *array);
 
 #endif

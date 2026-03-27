@@ -6,18 +6,18 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 14:56:34 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/27 13:58:38 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/27 16:34:08 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_map(char** map, int line)
+void	free_map(char** map)
 {
 	int		i;
 	
 	i = 0;
-	while(i < line)
+	while(map[i])
 	{
 		free(map[i]);
 		i++;

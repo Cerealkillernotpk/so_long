@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:34:57 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/27 13:46:36 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/27 20:42:43 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 
 int line_number(char *filepath)
 {
-	int	i;
-	int	fd;
+	int		i;
+	int		fd;
+	char	*tmp;
 
-	i = 0;
-	fd = 0;
+	i = 0; 	 
 	fd = open(filepath, O_RDONLY);
+	tmp = NULL;
 	if (fd == -1)
 		return(0);
-	while (get_next_line(fd) != NULL)
+	while (1)
+	{
+		tmp = get_next_line(fd);
+		if (!tmp)
+			break ;
+		if (tmp)
+			free(tmp);
 		i++;
+	}
 	return(i);
 }
 
@@ -39,9 +47,8 @@ static int	get_map(char *filepath, char **map)
 	tmp = get_next_line(fd);
 	while(tmp != NULL)
 	{
-		map[i] = malloc(sizeof(char) * ft_strlen(tmp));
-		if (!map[i])
-			return(0);
+		if (!tmp)
+			map_error(map);
 		map[i] = tmp;
 		i++;
 		tmp = get_next_line(fd);
@@ -68,42 +75,20 @@ static int	check_map_name(char *name)
 	return (1);
 }
 
-int	file_error_message(int ac, char *str)
+t_so_long	parser(char **av)
 {
-	if (ac != 2)
-	{
-		ft_printf("Wrong argument number");
-		return (0);
-	}
-	if (check_map_name(str) == 0)
-	{
-		ft_printf("Name extemtion is invalid");
-		return(0);
-	}
-	return(1);
-}
+	t_so_long	map;
 
-char	**parser(char **av, int ac)
-{
-	char	**map;
-	int		line;
-
-	if (file_error_message(ac, av[1]) == 0)
-		return(NULL);
-	line = line_number(av[1]);
-	if (line == 0)
-	{
-		ft_printf("Name or filepath is invalid");
-		return(0);
-	}
-	map = malloc(sizeof(char*) * line);
-	if (!map)
-		return(NULL);
-	get_map(av[1], map);
-	if (check_map(map, line) == 0)
-	{
-		ft_printf("Map error");
-		return(0);		
-	}
+	if (!check_map_name(av[1]))
+		file_error_message(1);
+	map.line_number = line_number(av[1]);
+	if (map.line_number == 0)
+		file_error_message(4);
+	map.map = malloc(sizeof(char*) * map.line_number);
+	if (!map.map)
+		malloc_error();
+	get_map(av[1], map.map);
+	if (!check_map(map.map, map.line_number))
+		map_error(map.map);
 	return(map);
 }
