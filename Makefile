@@ -6,7 +6,7 @@
 #    By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/16 13:50:46 by adakhama          #+#    #+#              #
-#    Updated: 2026/03/14 18:10:38 by adakhama         ###   ########.fr        #
+#    Updated: 2026/03/27 14:52:35 by adakhama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,38 +16,26 @@ CFLAGS = -Wall -Werror -Wextra -g
 
 NAME = so_long
 
-SRC =	main.c \
-		parser.c \
-		flood_fill.c \
-		test.c \
-		utils.c \
-		checkers.c \
-		library/get_next_line/get_next_line_bonus.c \
-		library/get_next_line/get_next_line_utils_bonus.c \
-		library/struct/ft_listiter.c \
-		library/struct/ft_lstadd_back.c \
-		library/struct/ft_lstadd_front.c \
-		library/struct/ft_lstclear.c \
-		library/struct/ft_lstdelone.c \
-		library/struct/ft_lstlast.c \
-		library/struct/ft_lstmap.c \
-		library/struct/ft_lstnew.c \
-		library/struct/ft_lstsize.c \
+SRC := $(shell find src library/get_next_line library/struct -type f -name "*.c")
 	
-OBJ = $(SRC:.c=.o)
+INCLUDES_DIR = -Ilibrary/ -Ilibrary/lib/
+INCLUDES = $(INCLUDES_DIR)
+	
+OBJ = $(SRC:%.c=build/%.o)
 
 all: $(NAME)
 
 $(NAME):$(OBJ)
-	make -C library/printf -s
-	make -C library/libft -s
-	$(CC) -o $(NAME) $(OBJ) $(CFLAGS) -Llibrary/libft -Llibrary/printf -l:libft.a -l:libftprintf.a
+	@make -C library/printf -s
+	@make -C library/libft -s
+	$(CC) $(OBJ) -o $(NAME) -Llibrary/libft -Llibrary/printf -l:libft.a -l:libftprintf.a
 
-%.o:%.c
-	$(CC) $(CFLAGS) $< -c -o $@ -I library/libft -I library/printf
+build/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-clean: 
-	-rm -f $(OBJ)
+clean:
+	rm -rf build
 	make -C library/printf clean -s
 	make -C library/libft clean -s
 

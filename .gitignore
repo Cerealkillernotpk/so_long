@@ -3,5 +3,5 @@ read_error.txt
 *.o
 *.a
 so_long
-
+/build
 compile_commands.json

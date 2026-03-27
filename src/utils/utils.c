@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 14:50:08 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/14 18:37:23 by adakhama         ###   ########.fr       */
+/*   Created: 2026/03/14 14:56:34 by adakhama          #+#    #+#             */
+/*   Updated: 2026/03/27 13:58:38 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char**argv)
+void	free_map(char** map, int line)
 {
-	int		line;
-	char	**map;
+	int		i;
 	
-	map = parser(argv, argc);
-	if (map == 0)
-		return(0);
-	line = line_number(argv[1]);
-	map_border_checker(map, line);
-	print_map(map, line);
-	ft_printf("\n\n");
-	flood_fill(map,line);
-	ft_printf("\n\n");
-	free_map(map, line);
+	i = 0;
+	while(i < line)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }

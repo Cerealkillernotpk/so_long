@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 14:40:46 by adakhama          #+#    #+#             */
-/*   Updated: 2025/11/04 16:36:01 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/27 13:49:41 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar(int c, size_t *len)
 {
-	*len += write(1, &c, 1);
+	*len += write(2, &c, 1);
 }

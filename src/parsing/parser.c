@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:34:57 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/26 17:27:12 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/27 13:46:36 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	check_map_name(char *name)
 	return (1);
 }
 
-int	file_error_message(int ac, char *str, int line)
+int	file_error_message(int ac, char *str)
 {
 	if (ac != 2)
 	{
@@ -80,11 +80,6 @@ int	file_error_message(int ac, char *str, int line)
 		ft_printf("Name extemtion is invalid");
 		return(0);
 	}
-	if (line == 0)
-	{
-		ft_printf("Name or filepath is invalid");
-		return(0);
-	}
 	return(1);
 }
 
@@ -92,10 +87,15 @@ char	**parser(char **av, int ac)
 {
 	char	**map;
 	int		line;
-	
-	line = line_number(av[1]);
-	if (file_error_message(ac,av[1], line) == 0)
+
+	if (file_error_message(ac, av[1]) == 0)
 		return(NULL);
+	line = line_number(av[1]);
+	if (line == 0)
+	{
+		ft_printf("Name or filepath is invalid");
+		return(0);
+	}
 	map = malloc(sizeof(char*) * line);
 	if (!map)
 		return(NULL);

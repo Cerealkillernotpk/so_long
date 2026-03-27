@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 15:18:15 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/26 17:39:22 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/27 13:41:31 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int	flood_fill(char **map, int line)
 	char	**copy;
 	t_vec	coord;
 
+	write(1, "Flood Fill\n", 11);
 	coord.x = 0;
 	coord.y = 0;
 	copy = malloc(sizeof(char *) * line);

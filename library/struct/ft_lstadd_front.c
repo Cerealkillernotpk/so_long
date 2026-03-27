@@ -6,11 +6,11 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:32:30 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/11 17:15:38 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:29:31 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "so_long.h"
 
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {

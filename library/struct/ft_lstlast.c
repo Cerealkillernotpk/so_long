@@ -6,11 +6,11 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:44:24 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/11 17:15:54 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:29:51 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "so_long.h"
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
