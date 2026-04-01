@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 16:08:47 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/27 20:39:26 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/04/01 16:04:37 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	file_error_message(int error)
 	else if (error == 3)
 		ft_printf("Name or filepath is invalid !!\n");
 	else if (error == 4)
-		ft_printf("Name or filepath is invalid");
+		ft_printf("Invalid map !!\n");
 	exit (EXIT_FAILURE);
 }
 
