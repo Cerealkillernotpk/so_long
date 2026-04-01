@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:50:08 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/27 21:26:30 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/04/01 16:01:13 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	map = parser(av);
 	if (!map.map)
 		malloc_error();
-	// print_map(map.map, map.line_number);
+	print_map(map.map, map.line_number);/*Penser a enlever fonction*/
 	ft_printf("\n\n");
 	flood_fill(map);
 	ft_printf("\n\n");

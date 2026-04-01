@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 15:18:15 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/27 21:32:01 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/04/01 16:01:24 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,20 @@
 char	**copy_map(char **map, int count)
 {
 	int		i;
-	int		j;
 	char	**copy;
 
 	i = 0;
-	copy = malloc(sizeof(char*) * count);
+	copy = malloc(sizeof(char*) * (count + 1));
 	if (!copy)
 		malloc_error();
-	j = ft_strlen(map[i]);
-	while (map[i] && i < count)
+	while (map[i])
 	{
-		copy[i] = malloc(sizeof(char) * ft_strlen(map[i]));
-		if (!copy[i])
-			malloc_error();
-		copy[i] = map [i];
+		copy[i] = ft_strdup(map[i]);
+		if (copy[i] == NULL)
+			break;
 		i++;
-		// if (map[i][j] == '\0')
-		// 	break ;
 	}
+	copy[i] = NULL;
 	return(copy);
 }
 
@@ -90,19 +86,15 @@ int	flood_fill(t_so_long map)
 {
 	char	**copy;
 
-	write(1, "Flood Fill\n", 11);
+	write(1, "Flood Fill\n", 11);/*Penser a enlever fonction*/
 	map.x = 0;
 	map.y = 0;
-	copy = NULL;
-	copy = malloc(sizeof(char *) * map.line_number);
-	if (!copy)
-		malloc_error();
 	copy = copy_map(map.map, map.line_number); 
 	if (!fill(copy, &map))
 		map_error(map.map);
 	if (!flood_fill_checker(copy, &map))
 		map_error(map.map);
-	print_map(copy, map.line_number);
+	print_map(copy, map.line_number);/*Penser a enlever fonction*/
 	free_map(copy);
 	return (1);
 }

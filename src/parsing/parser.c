@@ -6,7 +6,7 @@
 /*   By: adakhama <adakhama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:34:57 by adakhama          #+#    #+#             */
-/*   Updated: 2026/03/27 20:42:43 by adakhama         ###   ########.fr       */
+/*   Updated: 2026/04/01 15:53:50 by adakhama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static int	get_map(char *filepath, char **map)
 		i++;
 		tmp = get_next_line(fd);
 	}
+	map[i] = NULL;
 	return (1);
 }
 
@@ -84,7 +85,7 @@ t_so_long	parser(char **av)
 	map.line_number = line_number(av[1]);
 	if (map.line_number == 0)
 		file_error_message(4);
-	map.map = malloc(sizeof(char*) * map.line_number);
+	map.map = malloc(sizeof(char*) * (map.line_number + 1));
 	if (!map.map)
 		malloc_error();
 	get_map(av[1], map.map);
